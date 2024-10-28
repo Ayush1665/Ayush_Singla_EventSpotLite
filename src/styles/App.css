@@ -1,0 +1,135 @@
+/* src/styles/App.css */
+
+body {
+  background-color: #2c2c2c; /* Dark background for the whole page */
+  overflow: hidden; /* Prevent scrollbars during the animation */
+  background-image: url(./assets/background.jpg);
+}
+
+.welcome-container {
+  position: fixed;
+  top: 50%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%); /* Center the container */
+  font-size: 100px; /* Size of the letters */
+  color: #BFFF00 ; /* Bright color for the text */
+  font-family: 'Electrolize', sans-serif; /* Optional gaming font */
+}
+
+.welcome-letter {
+  display: inline-block; /* Keep letters inline but allow for animation */
+  opacity: 0; /* Initially invisible */
+  transform: translateY(-100px); /* Start above the viewport */
+}
+
+.welcome-letter.fall {
+  animation: fall 1s forwards; /* Trigger falling animation */
+}
+
+@keyframes fall {
+  0% {
+      transform: translateY(-100px); /* Start above */
+      opacity: 1; /* Fully visible */
+  }
+  100% {
+      transform: translateY(0); /* End at original position */
+      opacity: 1; /* Keep visible */
+  }
+}
+
+.blast {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 200%; /* Expanded size for blast effect */
+  height: 200%; /* Expanded size for blast effect */
+  background: radial-gradient(circle, rgb(0, 255, 204) 0%, rgba(0,255,204,0.3) 50%, rgba(255, 255, 255, 0) 100%); /* Color gradient for the blast */
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0); /* Center the blast and start from scale 0 */
+  animation: blastAnimation 1s forwards; /* Animation for the blast */
+}
+
+@keyframes blastAnimation {
+  0% {
+      transform: translate(-50%, -50%) scale(0); /* Start at original size */
+      opacity: 1; /* Fully visible */
+  }
+  50% {
+      transform: translate(-50%, -50%) scale(1); /* Scale to fill the viewport */
+  }
+  100% {
+      transform: translate(-50%, -50%) scale(1.5); /* Scale beyond the viewport */
+      opacity: 0; /* Fade out */
+  }
+}
+
+.App {
+  text-align: center; /* Center align content */
+}
+
+.main-content {
+  display: none; /* Initially hidden */
+  text-align: center;
+  color: #ffffff; /* Light text color */
+  font-family: 'Orbitron', sans-serif; /* Optional gaming font */
+  margin-top: 20px; /* Spacing */
+}
+
+/*tablet*/
+@media (max-width: 768px) {
+  .welcome-container {
+    font-size: 8vw; 
+  }
+
+  .blast {
+    width: 250%;
+    height: 250%; 
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .welcome-container {
+    font-size: 10vw; 
+  }
+
+  .blast {
+    width: 300%;
+    height: 300%; 
+  }
+}
+
+
+.bounce {
+    animation: bounce 0.5s ease forwards; /* Trigger bounce animation */
+}
+
+@keyframes bounce {
+    0% {
+        left: -100px; /* Start off-screen */
+    }
+    50% {
+        left: 10px; /* Move towards the welcome text */
+    }
+    100% {
+        left: 0; /* End position next to welcome text */
+    }
+}
+/* Existing styles in src/styles/App.css */
+
+.welcome-letter.fall {
+  animation: fallRotate 1s forwards; /* New animation with rotation */
+}
+
+@keyframes fallRotate {
+  0% {
+      transform: translateY(-100px) rotate(0deg); /* Start above, no rotation */
+      opacity: 1; /* Fully visible */
+  }
+  100% {
+      transform: translateY(0) rotate(360deg); /* End at original position with 360° rotation */
+      opacity: 1; /* Keep visible */
+  }
+}
+
+

@@ -1,0 +1,164 @@
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.92); /* Semi-transparent black background */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    transition: opacity 0.5s ease;
+}
+
+.modal-content {
+    background: linear-gradient(135deg, #2c2c2c, #1f1f1f); /* Dark gradient background */
+    border-radius: 15px;
+    box-shadow: 0 4px 30px rgba(0, 255, 234, 0.3);
+    overflow: hidden;
+    max-width: 800px; /* Set max width for modal */
+    width: 90%; /* Responsive width */
+    animation: fadeIn 0.5s ease; /* Animation for opening */
+}
+
+.modal-container {
+    display: flex;
+    
+}
+
+.fade-in {
+    opacity: 1;
+}
+
+.fade-out {
+    opacity: 0;
+}
+
+.scale-in {
+    transform: scale(1);
+}
+
+.scale-out {
+    transform: scale(0.95);
+}
+
+.image-container {
+    flex: 1; /* Take up equal space */
+    overflow: hidden;
+}
+
+.event-image {
+    width: 100%;
+    height: 99%; /* Maintain aspect ratio */
+    object-fit: cover; /* Cover the container */
+    cursor: pointer;
+}
+
+.event-image:hover {
+    transform: scale(1.05);
+}
+
+.text-content {
+    flex: 1; /* Take up equal space */
+    padding: 20px;
+    color: #e0e0e0; /* Light gray text for visibility */
+    font-family: 'Orbitron', sans-serif; /* Gaming-like font */
+}
+
+.modal-name {
+    font-family: 'Orbitron', sans-serif; /* Sci-fi font for a gaming theme */
+    font-size: 38px; /* Increased size */
+    font-weight: bold;
+    color: rgb(0, 255, 204); /* Bright color for the title */
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); /* Shadow for depth */
+    text-align: center;
+}
+
+.event-date-location {
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px; /* Increased size */
+    background: linear-gradient(180deg, #a8e063, #56ab2f); 
+    -webkit-background-clip: text; /* For Safari */
+    -webkit-text-fill-color: transparent; 
+    margin-bottom: 15px;
+}
+
+.event-description {
+    font-family:  cursive;
+    font-size: 18px; /* Increased size */
+    background: linear-gradient(135deg, #ffffff, #f0f0f0, #d9d9d9, #c0c0c0, #a6a6a6); /* White to light gray gradient */
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+
+
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Slight shadow for depth */
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fade-out {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+.close-button {
+    position: fixed; /* Fixed positioning */
+    top: 20px; /* Distance from the top */
+    right: 20px; /* Distance from the right */
+    background: linear-gradient(135deg, #1f1f1f, #2c2c2c); /* Dark gradient background to match modal */
+    color: #00ffcc; /* Bright color for text to ensure visibility */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px 15px; /* Padding */
+    font-size: 20px; /* Font size */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: transform 0.2s, background 0.2s; /* Transition for effects */
+    box-shadow: 0 4px 15px rgba(0, 255, 234, 0.2); /* Shadow for depth */
+    z-index: 1001; /* Ensure the button is above the modal */
+}
+
+.close-button:hover {
+    background: linear-gradient(135deg, #00ffcc, #1f1f1f); /* Lighter gradient on hover */
+    transform: scale(1.1); /* Slightly grow on hover */
+}
+
+.close-button:focus {
+    outline: none; /* Remove focus outline */
+    box-shadow: 0 0 5px #00ffcc; /* Shadow for focus */
+}
+
+@media (max-width: 768px) {
+    .search-input {
+      width: 50%;
+      margin-left: 50%; /* Centered on smaller screens */
+    }
+  
+    .event-card {
+      margin: 8px 0 8px 20px;
+    }
+  
+    .event-list {
+      padding-left: 0; /* Remove left padding for smaller screens */
+    }
+  }
+  
+  
+  @media (max-width: 480px) {
+    .event-date-location{
+      font-size: 0.5rem;
+    } 
+  }
+  
