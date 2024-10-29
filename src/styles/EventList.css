@@ -16,6 +16,7 @@ body {
   display: flex;
   flex-direction: column;
   margin-top: 10px;
+  align-items: center;
 }
 
 .logo-text {
@@ -88,13 +89,14 @@ body {
 
 @media (max-width: 480px) {
   .logo-text{
-    margin-right: 50px;
+    margin-right: -100px;
+    transform: translateY(-25px); 
   }
 }
 .offscreen-image-container {
   position: fixed; 
   left: 0; 
-  top: 65%; 
+  top: 50%; 
   transform: translateY(-50%); 
   z-index: 1000; 
 }
