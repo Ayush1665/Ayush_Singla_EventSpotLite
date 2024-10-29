@@ -2,8 +2,8 @@ import React, { useState, useEffect, useRef } from 'react';
 import events from '../data/events';
 import "../styles/EventList.css";
 import EventCard from '../components/EventCard';
-import noresult from '../assets/noresult.png'; // Ensure this path is correct
-import offscreen from '../assets/offscreen.png'; // Offscreen image path
+import noresult from '../assets/noresult.png'; 
+import offscreen from '../assets/offscreen.png'; 
 
 const EventList = ({ onEventClick }) => {
     const [search, setSearch] = useState("");
@@ -49,6 +49,13 @@ const EventList = ({ onEventClick }) => {
     const handleUserActivity = () => {
         resetInactivityTimer(); // Reset timer on any user activity
     };
+    const handleLogoClick = () => {
+        setAnimateLogo(true);
+        // Use a timeout to allow animation to complete before refreshing
+        setTimeout(() => {
+            window.location.reload(); // Refresh the page
+        }, 500); // Match the duration of the animation
+    };
 
     // Setup event listeners for mouse, touch, and scroll
     useEffect(() => {
@@ -87,7 +94,8 @@ const EventList = ({ onEventClick }) => {
     
             <div className="header">
                 <h1 
-                    className={`logo-text ${animateLogo ? 'animate' : ''}`} 
+                    className={`logo-text ${animateLogo ? 'animate' : ''}`}
+                    onClick={handleLogoClick} 
                 >
                     EventSpot Lite
                 </h1>
